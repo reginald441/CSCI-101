@@ -1,0 +1,36 @@
+/*program name:  restaurant bill.cpp
+  Author: Reginald kargbo
+Date update 28/01/23
+  Purpose: informs a user of their meal charge
+*/
+#include <iostream>
+#include <iomanip>
+
+int main() {
+    // Set precision for currency formatting
+    std::cout << std::fixed << std::setprecision(2);
+
+    // Define constants for tax and tip rates
+    const double TAX_RATE = 0.0675;
+    const double TIP_RATE = 0.20;
+
+    // Variable to hold the cost of the meal
+    double mealCharge = 32.95;
+
+    // Calculate the tax amount
+    double taxAmount = mealCharge * TAX_RATE;
+
+    // Calculate the tip amount (on the meal cost plus tax)
+    double tipAmount = (mealCharge + taxAmount) * TIP_RATE;
+
+    // Calculate the total bill
+    double totalBill = mealCharge + taxAmount + tipAmount;
+
+    // Display the results
+    std::cout << "Meal Cost: $" << mealCharge << std::endl;
+    std::cout << "Tax Amount: $" << taxAmount << std::endl;
+    std::cout << "Tip Amount: $" << tipAmount << std::endl;
+    std::cout << "Total Bill: $" << totalBill << std::endl;
+
+    return 0;
+}
