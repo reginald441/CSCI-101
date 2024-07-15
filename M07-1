@@ -1,0 +1,71 @@
+/* Program name:  Movie Data
+ Author: Reginald kargbo
+Date last updated: 3/1/2023
+Purpose: To structure names of MovieData 
+*/
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+struct MovieData {
+	string title;
+	string genre;
+	string director;
+	int year;
+	int running_time;
+};
+
+void displayMovie(MovieData movie) {
+	cout << "Movie Information:" << endl;
+	cout << "Title: " << movie.title << endl;
+	cout << "Genre: " << movie.genre << endl;
+	cout << "Directed by: " << movie.director << endl;
+	cout << "Year Released: " << movie.year << endl;
+	cout << "Running Time: " << movie.running_time << " minutes" << endl;
+}
+
+int main() {
+	MovieData movie1, movie2;
+	
+	// Get information for movie1
+	cout << "Enter information for movie 1:" << endl;
+	cout << "Title: ";
+	getline(cin, movie1.title);
+	cout << "Genre: ";
+	getline(cin, movie1.genre);
+	cout << "Director: ";
+	getline(cin, movie1.director);
+	cout << "Year Released: ";
+	cin >> movie1.year;
+	cout << "Running Time (in minutes): ";
+	cin >> movie1.running_time;
+	
+	cin.ignore();
+	
+	// Get information for movie2
+	cout << "\nEnter information for movie 2:" << endl;
+	cout << "Title: ";
+	getline(cin, movie2.title);
+	cout << "Genre: ";
+	getline(cin, movie2.genre);
+	cout << "Director: ";
+	getline(cin, movie2.director);
+	cout << "Year Released: ";
+	cin >> movie2.year;
+	cout << "Running Time (in minutes): ";
+	cin >> movie2.running_time;
+	
+	cout << endl;
+	
+	// Display the information
+	cout << "Movie 1:" << endl;
+	displayMovie(movie1);
+	
+	cout << endl;
+	
+	cout << "Movie 2:" << endl;
+	displayMovie(movie2);
+	
+	return 0;
+}
