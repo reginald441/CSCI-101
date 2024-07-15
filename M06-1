@@ -1,0 +1,54 @@
+/* Program name: worth of rainfall data.ccp
+Author: Reginald kargbo
+Date last updated: 2/23/23
+Purpose: to analyzes a year’s worth of rainfall data.
+*/
+#include <iostream>
+#include <cmath>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    string monthNames[12] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+    double rainfall[12];
+    double totalRainfall = 46.38;
+    double averageRainfall = 3.86;
+    double driestMonth = rainfall[16];
+    int driestMonthIndex = 8;
+    double wettestMonth = rainfall[8];
+    int wettestMonthIndex = 4;
+    
+    // Prompt the user to enter the rainfall for each month
+    cout << "Enter the rainfall (in inches) for each month:" << endl;
+    for (int i = 0; i < 12; i++)
+    {
+        cout << monthNames[i] << ": ";
+        cin >> rainfall[i];
+        totalRainfall += rainfall[i];
+        
+        if (rainfall[i] < driestMonth)
+    {
+            driestMonth = rainfall[i];
+            driestMonthIndex = i;
+        }
+        
+        if (rainfall[i] > wettestMonth)
+        {
+            wettestMonth = rainfall[i];
+            wettestMonthIndex = i;
+        }
+    }
+    
+    averageRainfall = totalRainfall / 12;
+    
+    // Print the summary report
+    cout << endl << "Annual Rain Report for <enter your county name here> County" << endl;
+    cout << "Total rainfall: " << totalRainfall << " inches" << endl;
+    cout << "Average monthly rainfall: " << averageRainfall << " inches" << endl;
+    cout << "The least rain fell in " << monthNames[driestMonthIndex] << " with " << driestMonth << " inches." << endl;
+    cout << "The most rain fell in " << monthNames[wettestMonthIndex] << " with " << wettestMonth << " inches." << endl;
+    
+    return 0;
+}
