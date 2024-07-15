@@ -1,0 +1,47 @@
+/*
+ * Program Name: Calculate Miles Per Hour
+ * Author: Reginald Kargbo
+ * Date Last Updated: 2/7/23
+ * Purpose: To calculate the distance a vehicle can travel based on its speed and time traveled.
+ */
+
+#include <iostream>
+#include <iomanip> // For setting output format
+
+using namespace std;
+
+int main() {
+    int speed = 0;
+    int time = 0;
+    int distance = 0;
+
+    cout << "What is the speed of the vehicle in mph? ";
+    cin >> speed;
+
+    // Validate the speed input
+    if (speed < 0) {
+        cerr << "Invalid speed. Speed must be non-negative." << endl;
+        return 1;
+    }
+
+    cout << "How many hours has it traveled? ";
+    cin >> time;
+
+    // Validate the time input
+    if (time < 1) {
+        cerr << "Invalid time. Time must be at least 1 hour." << endl;
+        return 1;
+    }
+
+    // Display the table header
+    cout << "\nHour\tDistance Traveled\n";
+    cout << "----------------------\n";
+
+    // Calculate and display the distance for each hour
+    for (int hour = 1; hour <= time; ++hour) {
+        distance = speed * hour;
+        cout << hour << "\t" << distance << " miles" << endl;
+    }
+
+    return 0;
+}
