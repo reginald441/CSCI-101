@@ -1,0 +1,39 @@
+/*
+ * Program Name: Celsius to Fahrenheit Converter
+ * Author: Reginald Kargbo
+ * Date Last Updated: 2/12/23
+ * Purpose: Converts Celsius temperatures to Fahrenheit temperatures.
+ */
+
+#include <iostream>
+#include <iomanip> // For setting output format
+
+using namespace std;
+
+int main() {
+    double lowerLimit = 0.0, upperLimit = 0.0;
+    
+    cout << "Enter the lower limit Celsius temperature: ";
+    cin >> lowerLimit;
+
+    cout << "Enter the upper limit Celsius temperature: ";
+    cin >> upperLimit;
+
+    // Validate the temperature limits
+    if (lowerLimit > upperLimit) {
+        cerr << "Error: Lower limit is greater than upper limit." << endl;
+        return 1;
+    }
+
+    // Display the table header
+    cout << "\nCelsius\tFahrenheit\n";
+    cout << "-------\t----------\n";
+
+    // Calculate and display Fahrenheit equivalents for each Celsius degree in the range
+    for (double celsius = lowerLimit; celsius <= upperLimit; celsius++) {
+        double fahrenheit = (9.0 / 5.0) * celsius + 32.0;
+        cout << fixed << setprecision(2) << celsius << "\t" << fixed << setprecision(2) << fahrenheit << endl;
+    }
+
+    return 0;
+}
