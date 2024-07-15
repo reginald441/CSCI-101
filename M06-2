@@ -1,0 +1,122 @@
+/* Program name: Rainfall Statistics.ccp
+ Author: Reginald kargbo
+Date last updated: 2/23/23
+Purpose: To calculate two-dimensional array to store the highest and lowest temperatures for each month of the year. 
+*/
+#include <iostream>
+#include <vector>
+using namespace std;
+
+const int MONTHS = 12; 
+
+// Function prototypes 
+void getData(int temperatures[MONTHS][2]); 
+double averageHigh(int temperatures[MONTHS][2]);
+double averageLow(int temperatures[MONTHS][2]);
+int indexHighTemp(int temperatures[MONTHS][2]);
+int indexLowTemp(int temperatures[MONTHS][2]);
+
+int main()
+{
+	//declare 2D array
+	int temperatures[MONTHS][2];
+	
+	//call getData function
+	getData(temperatures);
+	
+	//call averageHigh function
+	cout << "The average high temperature for the year is: " << averageHigh(temperatures) << endl;
+	
+	//call averageLow function
+	cout << "The average low temperature for the year is: " << averageLow(temperatures) << endl;
+	
+	//call indexHighTemp function
+	int highIndex = indexHighTemp(temperatures);
+	//display highest  temperature
+	cout << "The highest temperature for the year is: " << temperatures[highIndex][0] << endl;
+	
+	//call indexLowTemp function
+	int lowIndex = indexLowTemp(temperatures);
+	//display lowest temperature
+	cout << "The lowest temperature for the year is: " << temperatures[lowIndex][1] << endl; 
+	
+	return 0;
+}
+
+//Function definitions 
+
+void getData(int temperatures[MONTHS][2])
+{
+	//prompt user to enter temperatures
+	cout << "Please enter the highest and lowest temperatures for each month of the year:" << endl;
+	
+	for (int i = 0; i < MONTHS; i++)
+	{
+		cout << "Month " << i+1 << ": ";
+		cin >> temperatures[i][0] >> temperatures[i][1];
+	}
+	
+	cout << endl;
+}
+
+double averageHigh(int temperatures[MONTHS][2])
+{
+	//declare variable to store sum of all high temperatures
+	double sum = 0;
+	
+	//loop through array and add all high temperatures
+	for (int i = 0; i < MONTHS; i++)
+	{
+		sum += temperatures[i][0];
+	}
+	
+	//calculate and return average high temperature
+	return sum/MONTHS;
+}
+
+double averageLow(int temperatures[MONTHS][2])
+{
+	//declare variable to store sum of all low temperatures
+	double sum = 0;
+	
+	//loop through array and add all low temperatures
+	for (int i = 0; i < MONTHS; i++)
+	{
+		sum += temperatures[i][1];
+	}
+	
+	//calculate and return average low temperature
+	return sum/MONTHS;
+}
+
+int indexHighTemp(int temperatures[MONTHS][2])
+{
+	//declare variable to store index of highest temperature
+	int index = 0;
+	
+	//loop through array and compare highest temperature
+	for (int i = 0; i < MONTHS; i++)
+	{
+		if (temperatures[i][0] > temperatures[index][0])
+			index = i;
+	}
+	
+	//return index of highest temperature
+	return index;
+}
+
+int indexLowTemp(int temperatures[MONTHS][2])
+{
+	//declare variable to store index of lowest temperature
+	int index = 0;
+	
+	//loop through array and compare lowest temperature
+	for (int i = 0; i < MONTHS; i++)
+	{
+		if (temperatures[i][1] < temperatures[index][1])
+			index = i;
+	}
+	
+	//return index of lowest temperature
+	return index;
+}
