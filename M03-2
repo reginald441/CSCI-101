@@ -1,0 +1,52 @@
+/*
+ * Program Name: Body Mass Index
+ * Author: Reginald Kargbo
+ * Purpose: Calculate the BMI using the formula: BMI = (weight * 703) / (height^2)
+ * Date Last Updated: 1/31/2023
+ */
+
+#include <iostream>
+#include <iomanip> // For setting precision
+
+using namespace std;
+
+int main() {
+    float weight = 0.0f, height = 0.0f, bmi = 0.0f;
+    string status;
+
+    cout << "BMI Calculator" << endl;
+    cout << "Enter weight (lbs): ";
+    cin >> weight;
+
+    if (!cin || weight <= 0) {
+        cerr << "Invalid input. Please enter a positive numeric value for weight." << endl;
+        return 1;
+    }
+
+    cout << "Enter height (in): ";
+    cin >> height;
+
+    if (!cin || height <= 0) {
+        cerr << "Invalid input. Please enter a positive numeric value for height." << endl;
+        return 1;
+    }
+
+    // Calculate BMI
+    bmi = (weight * 703) / (height * height);
+
+    // Set output to show two decimal places
+    cout << fixed << setprecision(2);
+    cout << endl << "BMI: " << bmi << endl;
+
+    // Determine BMI status
+    if (bmi < 18.5)
+        status = "Underweight";
+    else if (bmi >= 18.5 && bmi <= 25)
+        status = "Optimal";
+    else
+        status = "Overweight";
+
+    cout << "Result: " << status << endl;
+
+    return 0;
+}
