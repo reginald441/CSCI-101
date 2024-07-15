@@ -1,0 +1,66 @@
+/* Program name:Student structure
+*  Author: Reginald kargbo
+Date last updated: 3/3/2023
+* Purpose: Create a students structure that contains students information
+*/
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+enum Program {CSCI, DBMS, INFM, SDEV}; //Enum type declaration
+
+//Name structure
+struct Name {
+  string firstName;
+  char middleInitial;
+  string lastName;
+};
+
+//Student structure
+struct Student {
+  Name name; //Include Name structure within Student information structure
+  int ID;
+  string email;
+  string SSN;
+  Program program;
+};
+
+int main() {
+  //Create instances of Student structure
+  Student student1, student2;
+
+  //Assign values to instances
+  student1.name.firstName = "Reginald";
+  student1.name.middleInitial = 'T';
+  student1.name.lastName = "Kargbo";
+  student1.ID = 123456;
+  student1.email = "reginaldkargbo987@gmail.com";
+  student1.SSN = "123-45-6789";
+  student1.program = CSCI;
+
+  student2.name.firstName = "Peter";
+  student2.name.middleInitial = 'I';
+  student2.name.lastName = "Sesay";
+  student2.ID = 987654;
+  student2.email = "mary.jones@example.com";
+  student2.SSN = "987-65-4321";
+  student2.program = SDEV;
+
+  //Print student information
+  cout << "Student 1:" << endl;
+  cout << "Name: " << student1.name.firstName << " " << student1.name.middleInitial << ". " << student1.name.lastName << endl;
+  cout << "ID: " << student1.ID << endl;
+  cout << "Email: " << student1.email << endl;
+  cout << "SSN: " << student1.SSN << endl;
+  cout << "Program: " << student1.program << endl;
+
+  cout << "Student 2:" << endl;
+  cout << "Name: " << student2.name.firstName << " " << student2.name.middleInitial << ". " << student2.name.lastName << endl;
+  cout << "ID: " << student2.ID << endl;
+  cout << "Email: " << student2.email << endl;
+  cout << "SSN: " << student2.SSN << endl;
+  cout << "Program: " << student2.program << endl;
+
+  return 0;
+}
