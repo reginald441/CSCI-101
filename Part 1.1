@@ -1,0 +1,30 @@
+/*Program name: CookieMaker.cpp
+Author: Reginald Kargbo
+Date last update: 25/01/2023
+Purpose: Calculate the amount of ingredients needed to make a particular amount of cookie
+*/
+
+#include <iostream>
+#include <cmath>
+
+double cookies = 0.0;
+double sugar = 0.0;
+double butter = 0.0;
+double flour = 0.0;
+
+const double COOKIES_RECIPE = 48.0;
+const double SUGAR_RECIPE = 1.5;
+const double BUTTER_RECIPE = 1.0;
+const double FLOUR_RECIPE = 2.75;
+
+int main() {
+  std::cout<<"Enter the number of cookies: ";
+  std::cin>> cookies;
+ sugar = round((cookies * SUGAR_RECIPE)/ COOKIES_RECIPE);
+  butter = (cookies * BUTTER_RECIPE)/ COOKIES_RECIPE;
+  flour = (cookies * FLOUR_RECIPE)/ COOKIES_RECIPE;
+  std::cout << "To make "<<cookies<<" cookies, you will need:" << std::endl;
+  std::cout<<sugar<<" cups of sugar"<<std::endl;
+  std::cout<<butter<<" cups of butter"<<std::endl;
+  std::cout<<flour<<" cups of flour"<<std::endl;
+}
